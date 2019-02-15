@@ -22,6 +22,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO: Go through the tutorial and update the tutorial where needed.
+// TODO: Go through the tutorial and update this project with room.
 public class MainActivity extends AppCompatActivity implements RecyclerView.OnItemTouchListener{
 
     //instance variables
@@ -56,7 +58,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnIt
                 return true;
             }
         });
-
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
