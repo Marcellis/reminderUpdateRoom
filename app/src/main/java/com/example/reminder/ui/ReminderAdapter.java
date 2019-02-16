@@ -1,4 +1,4 @@
-package com.example.reminder;
+package com.example.reminder.ui;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.reminder.model.Reminder;
 
 import java.util.List;
 
@@ -32,12 +34,20 @@ public class ReminderAdapter extends RecyclerView.Adapter<ReminderAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ReminderAdapter.ViewHolder viewHolder, int i) {
         Reminder reminder = mReminders.get(i);
-        viewHolder.textView.setText(reminder.getmReminderText());
+        viewHolder.textView.setText(reminder.getReminderText());
     }
 
     @Override
     public int getItemCount() {
         return mReminders.size();
+    }
+
+    public void swapList (List<Reminder> newList) {
+        mReminders = newList;
+        if (newList != null) {
+            // Force the RecyclerView to refresh
+            this.notifyDataSetChanged();
+        }
     }
 
 
@@ -49,7 +59,5 @@ public class ReminderAdapter extends RecyclerView.Adapter<ReminderAdapter.ViewHo
             textView = itemView.findViewById(android.R.id.text1);
         }
     }
-
-
 
 }

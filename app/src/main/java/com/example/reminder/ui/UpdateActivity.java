@@ -1,4 +1,4 @@
-package com.example.reminder;
+package com.example.reminder.ui;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,6 +10,9 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+
+import com.example.reminder.R;
+import com.example.reminder.model.Reminder;
 
 public class UpdateActivity extends AppCompatActivity {
 
@@ -27,7 +30,7 @@ public class UpdateActivity extends AppCompatActivity {
 
 //Obtain the parameters provided by MainActivity
         final Reminder reminderUpdate = getIntent().getParcelableExtra(MainActivity.EXTRA_REMINDER);
-        mReminderView.setText(reminderUpdate.getmReminderText());
+        mReminderView.setText(reminderUpdate.getReminderText());
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -36,9 +39,9 @@ public class UpdateActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String text = mReminderView.getText().toString();
 
-//(reminderUpdate.setmReminderText(updatedReminderText)));
+//(reminderUpdate.setReminderText(updatedReminderText)));
                 if (!TextUtils.isEmpty(text)) {
-                    reminderUpdate.setmReminderText(text);
+                    reminderUpdate.setReminderText(text);
                     //Prepare the return parameter and return
                     Intent resultIntent = new Intent();
                     resultIntent.putExtra(MainActivity.EXTRA_REMINDER, reminderUpdate);
